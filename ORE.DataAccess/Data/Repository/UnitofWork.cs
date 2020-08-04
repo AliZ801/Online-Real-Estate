@@ -13,9 +13,12 @@ namespace ORE.DataAccess.Data.Repository
         {
             _db = db;
             Category = new CategoryRepo(_db);
+            SType = new STypeRepo(_db);
         }
 
         public ICategoryRepo Category { get; private set; }
+
+        public ISTypeRepo SType { get; private set; }
 
         public void Dispose()
         {

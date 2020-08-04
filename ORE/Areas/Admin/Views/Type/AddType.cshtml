@@ -1,0 +1,53 @@
+﻿@model ORE.Models.ViewModel.AdminVM
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var title = "Add New Sale Type";
+
+    if (Model.SType.Id != 0)
+    {
+        ViewData["Title"] = "Update Sale Type";
+    }
+    else
+    {
+        ViewData["Title"] = "Add New Sale Type";
+    }
+}
+
+<div class="container">
+    <div class="col-6 m-0 m-auto border rounded">
+        <form method="post" asp-action="AddType" class="col-12">
+            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+            @if (Model.SType.Id != 0)
+            {
+                <input type="hidden" asp-for="@Model.SType.Id" />
+                title = "Update Sale Type";
+            }
+
+            <div class="row justify-content-center">
+                <h3 class="pt-1">@title</h3>
+            </div>
+
+            <hr />
+
+            <div class="row form-group">
+                <label asp-for="@Model.SType.Type"></label>
+                <input asp-for="@Model.SType.Type" class="form-control" />
+                <span asp-validation-for="@Model.SType.Type" class="text-danger"></span>
+            </div>
+
+            <div class="row form-group">
+                @if (Model.SType.Id != 0)
+                {
+                    <partial name="_EditAndBackBtn" model="@Model.SType.Id" />
+                }
+                else
+                {
+                    <partial name="_CreateAndBackBtn" />
+                }
+            </div>
+
+        </form>
+    </div>
+</div>

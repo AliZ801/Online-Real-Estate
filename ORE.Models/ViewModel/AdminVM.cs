@@ -9,7 +9,11 @@ namespace ORE.Models.ViewModel
     {
         public Category Category { get; set; }
 
+        public SType SType { get; set; }
+
         //DropDown Lists
         public IEnumerable<SelectListItem> CategoryList { get; set; }
+
+        public IEnumerable<SelectListItem> STypeList { get; set; }
     }
 }

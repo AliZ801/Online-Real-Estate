@@ -8,6 +8,8 @@ namespace ORE.DataAccess.Data.Repository.IRepository
     {
         ICategoryRepo Category { get; }
 
+        ISTypeRepo SType { get; }
+
         void Save();
     }
 }
