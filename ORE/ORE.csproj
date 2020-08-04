@@ -20,8 +20,4 @@
     <ProjectReference Include="..\ORE.DataAccess\ORE.DataAccess.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Areas\Admin\Controllers\" />
-  </ItemGroup>
-
 </Project>

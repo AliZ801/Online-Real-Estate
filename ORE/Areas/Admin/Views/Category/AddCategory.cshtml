@@ -1,0 +1,53 @@
+﻿@model ORE.Models.ViewModel.AdminVM
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var title = "Add New Property Category";
+
+    if(Model.Category.Id != 0)
+    {
+        ViewData["Title"] = "Update Property Category";
+    }
+    else
+    {
+        ViewData["Title"] = "Add New Property Category";
+    }
+}
+
+<div class="container">
+    <div class="col-6 m-0 m-auto border rounded">
+        <form method="post" asp-action="AddCategory" class="col-12">
+            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+            @if (Model.Category.Id != 0)
+            {
+                <input type="hidden" asp-for="@Model.Category.Id" />
+                title = "Update Property Category";
+            }
+
+            <div class="row justify-content-center">
+                <h3 class="pt-1">@title</h3>
+            </div>
+
+            <hr />
+
+            <div class="row form-group">
+                <label asp-for="@Model.Category.PCategory"></label>
+                <input asp-for="@Model.Category.PCategory" class="form-control" />
+                <span asp-validation-for="@Model.Category.PCategory" class="text-danger"></span>
+            </div>
+
+            <div class="row form-group">
+                @if(Model.Category.Id != 0)
+                {
+                    <partial name="_EditAndBackBtn" model="@Model.Category.Id" />
+                }
+                else
+                {
+                    <partial name="_CreateAndBackBtn" />
+                }
+            </div>
+
+        </form>
+    </div>
+</div>
